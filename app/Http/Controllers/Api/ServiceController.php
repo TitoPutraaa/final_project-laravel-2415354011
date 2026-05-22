@@ -108,10 +108,10 @@ class ServiceController extends Controller
             "message" => "Service deleted successfully",            
             "data" => null,        
         ]);    
-    } 
+    }
 
-    public function activate(int $service): JsonResponse {        
-        $service = Service::query()->find($service);         
+    public function activate(int $id): JsonResponse {        
+        $service = Service::query()->find($id);         
         if (!$service) {            
             return response()->json([                
                 "success" => false,                
@@ -125,9 +125,9 @@ class ServiceController extends Controller
             "message" => "Service activated successfully",            
             "data" => $service,        
         ]);    
-    }     
-    public function deactivate(int $service): JsonResponse {        
-        $service = Service::query()->find($service);         
+    }
+    public function deactivate(int $id): JsonResponse {        
+        $service = Service::query()->find($id);         
         if (!$service) {            
             return response()->json([                
                 "success" => false,                
