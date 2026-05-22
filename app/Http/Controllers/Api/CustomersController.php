@@ -38,8 +38,8 @@ class CustomersController extends Controller
         ], 201 );  
     }
 
-    public function update(Request $request, int $customer): JsonResponse {        
-        $customer = Customer::query()->find($customer);         
+    public function update(Request $request, int $id): JsonResponse {        
+        $customer = Customer::query()->find($id);         
         if (!$customer) {            
             return response()->json([                
                 "success" => false,                
@@ -64,8 +64,8 @@ class CustomersController extends Controller
         ]);    
     }
 
-        public function destroy(int $customer): JsonResponse {    
-        $customer = Customer::query()->find($customer);         
+        public function destroy(int $id): JsonResponse {    
+        $customer = Customer::query()->find($id);         
         if (!$customer) {            
             return response()->json([                
                 "success" => false,                
@@ -80,7 +80,7 @@ class CustomersController extends Controller
                 "errors" => [],            
             ], 422 );        
         }         
-        $customer->delete();         
+        $customer->delete($id);
         return response()->json([            
             "success" => true,            
             "message" => "customer$customer deleted successfully",            
