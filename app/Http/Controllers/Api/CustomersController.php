@@ -80,7 +80,7 @@ class CustomersController extends Controller
                 "errors" => [],            
             ], 422 );        
         }         
-        $customer->delete();         
+        $customer->delete();
         return response()->json([            
             "success" => true,            
             "message" => "customer$customer deleted successfully",            
