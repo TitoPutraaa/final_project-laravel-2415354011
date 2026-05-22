@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CustomersController;
 use App\Http\Controllers\Api\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::apiResource("services", ServiceController::class);
-Route::patch("services/{service}/activate", [ServiceController::class,"activate"]);
-
-Route::patch("services/{service}/deactivate", [ServiceController::class,"deactivate"]);
+Route::patch("services/{id}/activate", [ServiceController::class,"activate"]);
+Route::patch("services/{id}/deactivate", [ServiceController::class,"deactivate"]);
+Route::apiResource("customers", CustomersController::class);
+Route::patch("services/{id}/activate", [ServiceController::class,"activate"]);
+Route::patch("services/{id}/deactivate", [ServiceController::class,"deactivate"]);
