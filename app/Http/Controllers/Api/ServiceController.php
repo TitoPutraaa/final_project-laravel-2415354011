@@ -48,8 +48,8 @@ class ServiceController extends Controller
         ], 201 );    
     } 
 
-    public function show(int $service): JsonResponse {        
-        $service = Service::query()->find($service);         
+    public function show(int $id): JsonResponse {        
+        $service = Service::query()->find($id);         
         if (!$service) {            
             return response()->json([                
                 "success" => false,                
@@ -63,8 +63,8 @@ class ServiceController extends Controller
             "data" => $service,        
         ]);    
     }     
-    public function update(Request $request, int $service): JsonResponse {        
-        $service = Service::query()->find($service);         
+    public function update(Request $request, int $id): JsonResponse {        
+        $service = Service::query()->find($id);         
         if (!$service) {            
             return response()->json([                
                 "success" => false,                
@@ -86,8 +86,8 @@ class ServiceController extends Controller
         ]);    
     } 
 
-    public function destroy(int $service): JsonResponse {        
-        $service = Service::query()->find($service);         
+    public function destroy(int $id): JsonResponse {        
+        $service = Service::query()->find($id);         
         if (!$service) {            
             return response()->json([                
                 "success" => false,                
@@ -102,7 +102,7 @@ class ServiceController extends Controller
                 "errors" => [],            
             ], 422 );        
         }         
-        $service->delete();         
+        $service->delete($id);         
         return response()->json([            
             "success" => true,            
             "message" => "Service deleted successfully",            
