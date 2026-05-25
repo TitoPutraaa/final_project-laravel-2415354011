@@ -33,7 +33,7 @@ class CustomersController extends Controller
         $customer = Customer::query()->create($data);
         return response()->json([            
             "success" => true,            
-            "message" => "Service created successfully",            
+            "message" => "Customer created successfully",            
             "data" => $customer,
         ], 201 );  
     }
@@ -43,7 +43,7 @@ class CustomersController extends Controller
         if (!$customer) {            
             return response()->json([                
                 "success" => false,                
-                "message" => "Service not found",                
+                "message" => "Customer not found",                
                 "errors" => [],            
             ], 404 );        
         }         
@@ -59,7 +59,7 @@ class CustomersController extends Controller
         $customer->update($data);         
         return response()->json([            
             "success" => true,            
-            "message" => "Service updated successfully",            
+            "message" => "Customer updated successfully",            
             "data" => $customer,        
         ]);    
     }
