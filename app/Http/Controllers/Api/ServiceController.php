@@ -102,7 +102,7 @@ class ServiceController extends Controller
                 "errors" => [],            
             ], 422 );        
         }         
-        $service->delete($id);         
+        $service->delete();         
         return response()->json([            
             "success" => true,            
             "message" => "Service deleted successfully",            
